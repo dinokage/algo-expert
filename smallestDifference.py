@@ -1,3 +1,4 @@
+import unittest
 def inputArray():
     return list(map(int, input().split()))
 def solution(arr1, arr2):
@@ -29,8 +30,16 @@ def optimized_solution(arr1, arr2):
         else:
             p2+=1
     return res
-arrayOne=inputArray()
-arrayTwo=inputArray()
-print(solution(arrayOne, arrayTwo))
-print(optimized_solution(arrayOne, arrayTwo))
-
+class TestSolution(unittest.TestCase):
+    def test_one(self):
+        result = optimized_solution([-1,5,10,20,28,3], [26,134,135,15,17])
+        self.assertEqual(result, [28,26])
+    def test_two(self):
+        result = optimized_solution([-1,5,10,20,3],[26,134,135,15,17])
+        self.assertEqual(result, [20,17])
+    def test_three(self):
+        result = optimized_solution([10,0,20,25],[1005,1006,1014,1032,1031])
+        self.assertEqual(result, [25,1005])
+    def test_four(self):
+        result=optimized_solution([10,1000,9124,2142,59,24,596,591,124,-123],[-1441,-124,-25,1014,1500,660,410,245,530])
+        self.assertEqual(result, [-123,-124])

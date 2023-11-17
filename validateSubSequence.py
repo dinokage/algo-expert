@@ -8,4 +8,4 @@ def solution(array, sequence):
         if pos == len(sequence):
             return True
     return False        
-print(solution(array, seqquence))
+print(solution(array, sequence))
